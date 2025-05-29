@@ -81,3 +81,14 @@ class Staff(Base):
         staff = relationship("Staff", back_populates="treatments")
         
         medications = relationship("Medication", back_populates="treatment", cascade="all, delete")
+    
+    class Medication(Base):
+        __tablename__ = "medications"
+        
+        id = Column(Integer, primary_key=True)
+        name = Column(String)
+        dosage = Column(String)
+        frequency = Column(String)
+        
+        treatment_id = Column(Integer, ForeignKey("treatments.id"))
+        treatment = relationship("Treatment", back_populates="medications")
