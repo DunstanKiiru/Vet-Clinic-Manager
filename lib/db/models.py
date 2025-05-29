@@ -92,3 +92,15 @@ class Staff(Base):
         
         treatment_id = Column(Integer, ForeignKey("treatments.id"))
         treatment = relationship("Treatment", back_populates="medications")
+    
+    class Billing(Base):
+        __tablename__ = "billings"
+        
+        id = Column(Integer, primary_key=True)
+        date = Column(DateTime)
+        amount = Column(Float)
+        description = Column(String)
+        
+        pet_id = Column(Integer, ForeignKey("pets.id"))
+        pet = relationship("Pet", back_populates="billings")
+        
