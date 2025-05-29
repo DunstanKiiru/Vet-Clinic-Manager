@@ -66,3 +66,18 @@ class Staff(Base):
         
         staff_id = Column(Integer, ForeignKey("staff.id"))
         staff = relationship("Staff", back_populates="appointments")
+        
+    class Treatment(Base):
+        __tablename__ = "treatments"
+        
+        id = Column(Integer, primary_key=True)
+        date = Column(DateTime)
+        description = Column(Text)
+        
+        pet_id = Column(Integer, ForeignKey("pets.id"))
+        pet = relationship("Pet", back_populates="treatments")
+        
+        staff_id = Column(Integer, ForeignKey("staff.id"))
+        staff = relationship("Staff", back_populates="treatments")
+        
+        medications = relationship("Medication", back_populates="treatment", cascade="all, delete")
