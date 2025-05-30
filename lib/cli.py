@@ -168,7 +168,7 @@ def list_treatments():
     treatments = session.query(Treatment).all()
     print("\n📋 Treatments")
     for t in treatments:
-        print(f"{t.id}: {t.date} - {t.description}")
+        print(f"{t.id}: {t.date} - {t.pet.name} ({t.pet.id}) - {t.description}")
 
 
 # === BILLING ===
