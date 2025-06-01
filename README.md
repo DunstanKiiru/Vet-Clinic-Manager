@@ -57,13 +57,13 @@ Interactive CLI: Intuitive menu-based navigation to access all functionality.
 
 1. Initialize the database:
 
-    python lib/cli.py
+    python lib/cli.py and select option 1
 
 2. From the CLI menu, select option 1 to initialize the database.
 
 3. Seed the database with sample data by running the seed script or using CLI commands.
 
-   python lib/db/seed.py
+  python -m lib.db.seed
 
 ## Usage
 
@@ -120,6 +120,7 @@ Display: Treatment listings now include the pet’s name and ID for clarity.
 To generate seed data for the database run
 python -m lib.db.seed
 from the root folder
+
 ## Contributing
 
 Contributions are welcome! Follow these steps:
