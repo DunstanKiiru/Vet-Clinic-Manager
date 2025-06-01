@@ -124,3 +124,7 @@ from the root folder
 ## Contributing
 
 I welcome contributions to improve this project! Here's how you can get involved:
+
+1. **Fork the repository** 🍴:
+   Click the "Fork" button at the top of the repo to create your own copy of the project.
+   
