@@ -144,3 +144,10 @@ Now that you've created a new branch, you can start making changes to the projec
 ### 4. Commit your changes 📝
 
 Once you've made your changes, commit them to your branch with a clear and descriptive commit message. This helps others understand the changes you've made.
+
+To commit your changes:
+
+```bash
+git commit -m "Brief description of changes made"
+
+```
