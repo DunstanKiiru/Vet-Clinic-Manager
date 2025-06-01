@@ -127,4 +127,9 @@ I welcome contributions to improve this project! Here's how you can get involved
 
 1. **Fork the repository** 🍴:
    Click the "Fork" button at the top of the repo to create your own copy of the project.
-   
+
+2. **Create a new branch**:  
+   Create a branch for your feature or fix.
+   ```bash
+   git checkout -b feature-name
+   ```
