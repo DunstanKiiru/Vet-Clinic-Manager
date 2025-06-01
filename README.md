@@ -130,6 +130,13 @@ I welcome contributions to improve this project! Here's how you can get involved
 
 2. **Create a new branch**:  
    Create a branch for your feature or fix.
+
    ```bash
    git checkout -b feature-name
    ```
+
+## 3. Make your changes ✏️
+
+Now that you've created a new branch, you can start making changes to the project. Whether it's fixing a bug, adding a feature, or updating documentation, feel free to modify the necessary files. Be sure to follow the code style and guidelines for consistency.
+
+---
