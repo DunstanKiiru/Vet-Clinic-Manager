@@ -140,3 +140,7 @@ I welcome contributions to improve this project! Here's how you can get involved
 Now that you've created a new branch, you can start making changes to the project. Whether it's fixing a bug, adding a feature, or updating documentation, feel free to modify the necessary files. Be sure to follow the code style and guidelines for consistency.
 
 ---
+
+### 4. Commit your changes 📝
+
+Once you've made your changes, commit them to your branch with a clear and descriptive commit message. This helps others understand the changes you've made.
