@@ -123,18 +123,4 @@ from the root folder
 
 ## Contributing
 
-Contributions are welcome! Follow these steps:
-
-Fork the repository
-
-Create a new branch: git checkout -b feature/your-feature
-
-Commit your changes: git commit -m "Add new feature"
-
-Push to the branch: git push origin feature/your-feature
-
-Submit a pull request
-
-## License
-
-This project is licensed under the MIT License.
+I welcome contributions to improve this project! Here's how you can get involved:
