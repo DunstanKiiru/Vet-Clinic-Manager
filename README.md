@@ -98,7 +98,8 @@ Welcome to Vet Clinic Manager!
 5. List Pet Owner
 6. Add Pet
 7. list Pets
-8. Schedule Appointment
+8. Add Appointment
+9. List Appointments
 ...
 
 ## Seed Data Updates
