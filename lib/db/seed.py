@@ -20,7 +20,7 @@ def drop_and_create_all():
 
 def seed_staff(session, n=5):
     staff_list = []
-    roles = ['Vet', 'Technician', 'Receptionist', 'Assistant']
+    roles = ['Vet', 'vet', 'vet', 'vet']
     try:
         for _ in range(n):
             staff = Staff(
