@@ -103,6 +103,7 @@ Welcome to Vet Clinic Manager!
 10. Add Treatment
 11. List Treatments
 12. Add Medication
+13. Add Billing
 ...
 
 ## Seed Data Updates
