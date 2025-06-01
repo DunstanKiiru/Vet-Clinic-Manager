@@ -117,6 +117,9 @@ Appointments: Reason fields now show options like "Routine check-up" and "Emerge
 
 Display: Treatment listings now include the pet’s name and ID for clarity.
 
+To generate seed data for the database run
+python -m lib.db.seed
+from the root folder
 ## Contributing
 
 Contributions are welcome! Follow these steps:
