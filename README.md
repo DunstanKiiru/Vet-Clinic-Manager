@@ -43,17 +43,14 @@ Interactive CLI: Intuitive menu-based navigation to access all functionality.
 
 ## Installation
 
-1.Clone this repository to your local machine: 
+1.Clone this repository to your local machine:
 
-git@github.com:DunstanKiiru/Vet-Clinic-Manager.git
-
+<git@github.com>:DunstanKiiru/Vet-Clinic-Manager.git
 2. Ensure Python 3.8+ is installed.
-   
 3. Install dependencies using Pipenv:
+pipenv install sqlalchemy alembic faker tabulate
 
-    pipenv install sqlalchemy alembic faker tabulate
-
-4. Activate the virtual environment:
+1. Activate the virtual environment:
 
     pipenv shell
 
