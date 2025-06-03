@@ -8,6 +8,16 @@ from tabulate import tabulate
 
 session = Session()
 
+def confirm_action(message):
+    while True:
+        choice = input(f"{message} (yes/no): ").strip().lower()
+        if choice in ['yes', 'y']:
+            return True
+        elif choice in ['no', 'n']:
+            return False
+        else:
+            print("Please enter 'yes' or 'no'.")
+
 def init_db():
     Base.metadata.create_all(engine)
     print("\nDatabase initialized!")
@@ -29,9 +39,12 @@ def add_staff():
     phone = input("Phone: ")
 
     staff = Staff(name=name, role=role, email=email, phone=phone)
-    session.add(staff)
-    session.commit()
-    print(f"Staff '{name}' added.")
+    if confirm_action(f"Are you sure you want to add staff '{name}'?"):
+        session.add(staff)
+        session.commit()
+        print(f"Staff '{name}' added.")
+    else:
+        print("Operation cancelled.")
 
 def list_staff():
     print("\nStaff Members")
@@ -53,9 +66,12 @@ def delete_staff():
             break
         except ValueError:
             print("Invalid input. Enter a valid Staff ID.")
-    session.delete(staff)
-    session.commit()
-    print(f"Staff ID {staff_id} and related records deleted.")
+    if confirm_action(f"Are you sure you want to delete staff ID {staff_id}?"):
+        session.delete(staff)
+        session.commit()
+        print(f"Staff ID {staff_id} and related records deleted.")
+    else:
+        print("Operation cancelled.")
 
 def staff_menu():
     while True:
@@ -86,9 +102,12 @@ def add_owner():
     phone = input("Phone: ")
 
     owner = Owner(name=name, email=email, phone=phone)
-    session.add(owner)
-    session.commit()
-    print(f"Owner '{name}' added.")
+    if confirm_action(f"Are you sure you want to add owner '{name}'?"):
+        session.add(owner)
+        session.commit()
+        print(f"Owner '{name}' added.")
+    else:
+        print("Operation cancelled.")
 
 def list_owners():
     print("\nOwners")
@@ -110,9 +129,12 @@ def delete_owner():
             break
         except ValueError:
             print("Invalid input. Enter a valid Owner ID.")
-    session.delete(owner)
-    session.commit()
-    print(f"Owner ID {owner_id} and related pets deleted.")
+    if confirm_action(f"Are you sure you want to delete owner ID {owner_id}?"):
+        session.delete(owner)
+        session.commit()
+        print(f"Owner ID {owner_id} and related pets deleted.")
+    else:
+        print("Operation cancelled.")
 
 def owner_menu():
     while True:
@@ -163,9 +185,12 @@ def add_pet():
         color=color, dob=dob, medical_notes=medical_notes,
         owner=owner
     )
-    session.add(pet)
-    session.commit()
-    print(f"Pet '{name}' added.")
+    if confirm_action(f"Are you sure you want to add pet '{name}'?"):
+        session.add(pet)
+        session.commit()
+        print(f"Pet '{name}' added.")
+    else:
+        print("Operation cancelled.")
 
 def list_pets():
     print("\nPets")
@@ -187,9 +212,12 @@ def delete_pet():
             break
         except ValueError:
             print("Invalid input. Enter a valid Pet ID.")
-    session.delete(pet)
-    session.commit()
-    print(f"Pet ID {pet_id} and related records deleted.")
+    if confirm_action(f"Are you sure you want to delete pet ID {pet_id}?"):
+        session.delete(pet)
+        session.commit()
+        print(f"Pet ID {pet_id} and related records deleted.")
+    else:
+        print("Operation cancelled.")
 
 def pet_menu():
     while True:
@@ -243,9 +271,12 @@ def add_appointment():
     reason = input("Reason: ")
 
     appointment = Appointment(date=date, reason=reason, pet=pet, staff=staff)
-    session.add(appointment)
-    session.commit()
-    print("Appointment added.")
+    if confirm_action("Are you sure you want to add this appointment?"):
+        session.add(appointment)
+        session.commit()
+        print("Appointment added.")
+    else:
+        print("Operation cancelled.")
 
 def list_appointments():
     print("\nAppointments")
@@ -303,9 +334,12 @@ def add_treatment():
     description = input("Description: ")
 
     treatment = Treatment(date=date, description=description, pet=pet, staff=staff)
-    session.add(treatment)
-    session.commit()
-    print("Treatment added.")
+    if confirm_action("Are you sure you want to add this treatment?"):
+        session.add(treatment)
+        session.commit()
+        print("Treatment added.")
+    else:
+        print("Operation cancelled.")
 
 def list_treatments():
     print("\nTreatments")
@@ -327,9 +361,12 @@ def delete_treatment():
             break
         except ValueError:
             print("Invalid input. Enter a valid Treatment ID.")
-    session.delete(treatment)
-    session.commit()
-    print(f"Treatment ID {treatment_id} and related medications deleted.")
+    if confirm_action(f"Are you sure you want to delete treatment ID {treatment_id}?"):
+        session.delete(treatment)
+        session.commit()
+        print(f"Treatment ID {treatment_id} and related medications deleted.")
+    else:
+        print("Operation cancelled.")
 
 def treatment_menu():
     while True:
@@ -372,9 +409,12 @@ def add_medication():
     frequency = input("Frequency: ")
 
     medication = Medication(name=name, dosage=dosage, frequency=frequency, treatment=treatment)
-    session.add(medication)
-    session.commit()
-    print("Medication added.")
+    if confirm_action(f"Are you sure you want to add medication '{name}'?"):
+        session.add(medication)
+        session.commit()
+        print("Medication added.")
+    else:
+        print("Operation cancelled.")
 
 def list_medications():
     print("\nMedications")
@@ -396,9 +436,12 @@ def delete_medication():
             break
         except ValueError:
             print("Invalid input. Enter a valid Medication ID.")
-    session.delete(medication)
-    session.commit()
-    print(f"Medication ID {medication_id} deleted.")
+    if confirm_action(f"Are you sure you want to delete medication ID {medication_id}?"):
+        session.delete(medication)
+        session.commit()
+        print(f"Medication ID {medication_id} deleted.")
+    else:
+        print("Operation cancelled.")
 
 def medication_menu():
     while True:
@@ -447,9 +490,12 @@ def add_billing():
     description = input("Description: ")
 
     billing = Billing(date=date, amount=amount, description=description, pet=pet)
-    session.add(billing)
-    session.commit()
-    print("Billing added.")
+    if confirm_action("Are you sure you want to add this billing record?"):
+        session.add(billing)
+        session.commit()
+        print("Billing added.")
+    else:
+        print("Operation cancelled.")
 
 def list_billing():
     print("\nBilling Records")
@@ -471,9 +517,12 @@ def update_billing_paid():
             break
         except ValueError:
             print("Invalid input. Enter a valid Billing ID.")
-    billing.paid = True
-    session.commit()
-    print(f"Billing ID {billing_id} marked as paid.")
+    if confirm_action(f"Are you sure you want to mark billing ID {billing_id} as paid?"):
+        billing.paid = True
+        session.commit()
+        print(f"Billing ID {billing_id} marked as paid.")
+    else:
+        print("Operation cancelled.")
 
 def billing_menu():
     while True:
@@ -501,13 +550,13 @@ def main_menu():
         print("""
 Main Menu:
 1. Initialize Database
-2. Staff
-3. Owners
-4. Pets
-5. Appointments
-6. Treatments
-7. Medications
-8. Billings
+2. Staff Menu
+3. Owners Menu
+4. Pets Menu
+5. Appointments Menu
+6. Treatments Menu
+7. Medications Menu
+8. Billings Menu
 9. Exit
 """)
         choice = input("Choose an option: ").strip()
