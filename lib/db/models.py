@@ -1,17 +1,16 @@
-# lib/db/models.py
 import os
 from sqlalchemy import create_engine
 from sqlalchemy.orm import declarative_base, sessionmaker
 
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-db_path = os.path.join(BASE_DIR, "clinic.db")
-DATABASE_URL = f"sqlite:///{db_path}"
+BASE_DIR = os.path.dirname(os.path.abspath(__file__)) #Gets where file is
+db_path = os.path.join(BASE_DIR, "clinic.db") #joins the BASE_DIR to database
+DATABASE_URL = f"sqlite:///{db_path}" #SQL url
 
 engine = create_engine(DATABASE_URL, echo=False)
 Session = sessionmaker(bind=engine)
 Base = declarative_base()
 
-from sqlalchemy import Column, Integer, String, ForeignKey, DateTime, Text, Float
+from sqlalchemy import Column, Integer, String, ForeignKey, DateTime, Text, Float, Boolean
 
 from sqlalchemy.orm import relationship, declarative_base
 
@@ -103,7 +102,7 @@ class Billing(Base):
     date = Column(DateTime)
     amount = Column(Float)
     description = Column(String)
+    paid = Column(Boolean, default=False)  # New column to track payment status
         
     pet_id = Column(Integer, ForeignKey("pets.id"))
     pet = relationship("Pet", back_populates="billings")
-        

@@ -37,9 +37,13 @@ Treatments: Record treatment procedures performed on pets.
 
 Medications: Manage prescribed medications associated with treatments.
 
-Billing: Generate billing records with descriptions for various clinic services.
+Billing: Generate billing records with descriptions for various clinic services.  
+**New:** Track payment status of billings with a "paid" flag.
 
-Interactive CLI: Intuitive menu-based navigation to access all functionality.
+Interactive CLI: Intuitive menu-based navigation to access all functionality, including:  
+
+- Deletion of Owners, Pets, Treatments, Medications, and Staff.  
+- Updating Billing records to mark them as paid.
 
 ## Installation
 
@@ -66,6 +70,12 @@ pipenv install sqlalchemy alembic faker tabulate
 
   python -m lib.db.seed
 
+4. **Important:** After code updates, run Alembic migrations to update the database schema, including the new "paid" column in Billing.
+
+```bash
+alembic upgrade head
+```
+
 ## Usage
 
 Run the CLI application:
@@ -88,6 +98,10 @@ Prescribe medications
 
 Create and view billing records
 
+Delete owners, pets, treatments, and medications
+
+Update billing payment status (mark as paid)
+
 ## Demo
 
 Welcome to Vet Clinic Manager!
@@ -104,8 +118,15 @@ Welcome to Vet Clinic Manager!
 10. Add Treatment
 11. List Treatments
 12. Add Medication
-13. Add Billing
-14. List Billings
+13. List Medications
+14. Add Billing
+15. List Billing
+16. Delete Owner
+17. Delete Pet
+18. Delete Treatment
+19. Delete Medication
+20. Update Billing Paid Status
+21. Exit
 ...
 
 ## Seed Data Updates
@@ -150,5 +171,3 @@ To commit your changes:
 
 ```bash
 git commit -m "Brief description of changes made"
-
-```
