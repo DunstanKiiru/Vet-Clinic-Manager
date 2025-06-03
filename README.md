@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-The **Vet Clinic Manager CLI** is a command-line interface (CLI) application for managing the day-to-day operations of a veterinary clinic. It provides tools to manage staff, pet owners, pets, appointments, treatments, medications, and billing records efficiently through an interactive terminal interface.
+The **Vet Clinic Manager CLI** is a command-line interface (CLI) application for managing the day-to-day operations of a veterinary clinic. It provides tools to manage staff, pet owners, pets, appointments, treatments, medications, and billing records efficiently through an interactive CLI interface.
 
 ---
 

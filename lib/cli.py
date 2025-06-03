@@ -18,10 +18,6 @@ def confirm_action(message):
         else:
             print("Please enter 'yes' or 'no'.")
 
-def init_db():
-    Base.metadata.create_all(engine)
-    print("\nDatabase initialized!")
-
 def input_date(prompt="Enter date (YYYY-MM-DD): "):
     while True:
         date_str = input(prompt)
@@ -30,7 +26,72 @@ def input_date(prompt="Enter date (YYYY-MM-DD): "):
         except ValueError:
             print("Invalid date format! Please try again.")
 
-# Staff functions
+# Main Menu
+
+def main_menu():
+    while True:
+        print("""
+Main Menu:
+1. Initialize Database
+2. Staff Menu
+3. Owners Menu
+4. Pets Menu
+5. Appointments Menu
+6. Treatments Menu
+7. Medications Menu
+8. Billings Menu
+9. Exit
+""")
+        choice = input("Choose an option: ").strip()
+        if choice == '1':
+            init_db()
+        elif choice == '2':
+            staff_menu()
+        elif choice == '3':
+            owner_menu()
+        elif choice == '4':
+            pet_menu()
+        elif choice == '5':
+            appointment_menu()
+        elif choice == '6':
+            treatment_menu()
+        elif choice == '7':
+            medication_menu()
+        elif choice == '8':
+            billing_menu()
+        elif choice == '9':
+            print("Goodbye!")
+            break
+        else:
+            print("Invalid choice.")
+
+def init_db():
+    Base.metadata.create_all(engine)
+    print("\nDatabase initialized!")
+
+#  Staff Menu
+
+def staff_menu():
+    while True:
+        print("""
+Staff Menu:
+1. Add Staff
+2. List Staff
+3. Delete Staff
+4. Back to Main Menu
+""")
+        choice = input("Choose an option: ").strip()
+        if choice == '1':
+            add_staff()
+        elif choice == '2':
+            list_staff()
+        elif choice == '3':
+            delete_staff()
+        elif choice == '4':
+            break
+        else:
+            print("Invalid choice.")
+
 def add_staff():
     print("\nAdd Staff")
     name = input("Name: ")
@@ -73,28 +134,28 @@ def delete_staff():
     else:
         print("Operation cancelled.")
 
-def staff_menu():
+# Owner Menu
+def owner_menu():
     while True:
         print("""
-Staff Menu:
-1. Add Staff
-2. List Staff
-3. Delete Staff
+Owner Menu:
+1. Add Owner
+2. List Owners
+3. Delete Owner
 4. Back to Main Menu
 """)
         choice = input("Choose an option: ").strip()
         if choice == '1':
-            add_staff()
+            add_owner()
         elif choice == '2':
-            list_staff()
+            list_owners()
         elif choice == '3':
-            delete_staff()
+            delete_owner()
         elif choice == '4':
             break
         else:
             print("Invalid choice.")
 
-# Owner functions
 def add_owner():
     print("\nAdd Owner")
     name = input("Name: ")
@@ -136,28 +197,28 @@ def delete_owner():
     else:
         print("Operation cancelled.")
 
-def owner_menu():
+# Pet Menu
+def pet_menu():
     while True:
         print("""
-Owner Menu:
-1. Add Owner
-2. List Owners
-3. Delete Owner
+Pet Menu:
+1. Add Pet
+2. List Pets
+3. Delete Pet
 4. Back to Main Menu
 """)
         choice = input("Choose an option: ").strip()
         if choice == '1':
-            add_owner()
+            add_pet()
         elif choice == '2':
-            list_owners()
+            list_pets()
         elif choice == '3':
-            delete_owner()
+            delete_pet()
         elif choice == '4':
             break
         else:
             print("Invalid choice.")
 
-# Pet functions
 def add_pet():
     print("\nAdd Pet")
     name = input("Name: ")
@@ -219,28 +280,26 @@ def delete_pet():
     else:
         print("Operation cancelled.")
 
-def pet_menu():
+
+# Appointment Menu
+def appointment_menu():
     while True:
         print("""
-Pet Menu:
-1. Add Pet
-2. List Pets
-3. Delete Pet
-4. Back to Main Menu
+Appointment Menu:
+1. Add Appointment
+2. List Appointments
+3. Back to Main Menu
 """)
         choice = input("Choose an option: ").strip()
         if choice == '1':
-            add_pet()
+            add_appointment()
         elif choice == '2':
-            list_pets()
+            list_appointments()
         elif choice == '3':
-            delete_pet()
-        elif choice == '4':
             break
         else:
             print("Invalid choice.")
 
-# Appointment functions
 def add_appointment():
     print("\nAdd Appointment")
     list_pets()
@@ -285,25 +344,28 @@ def list_appointments():
         appointment_list.append([a.id, a.date.strftime("%Y-%m-%d"), a.pet.name, a.staff.name, a.reason])
     print(tabulate(appointment_list, headers=["ID", "Date", "Pet", "Staff", "Reason"], tablefmt="grid"))
 
-def appointment_menu():
+# Treatment Menu
+def treatment_menu():
     while True:
         print("""
-Appointment Menu:
-1. Add Appointment
-2. List Appointments
-3. Back to Main Menu
+Treatment Menu:
+1. Add Treatment
+2. List Treatments
+3. Delete Treatment
+4. Back to Main Menu
 """)
         choice = input("Choose an option: ").strip()
         if choice == '1':
-            add_appointment()
+            add_treatment()
         elif choice == '2':
-            list_appointments()
+            list_treatments()
         elif choice == '3':
+            delete_treatment()
+        elif choice == '4':
             break
         else:
             print("Invalid choice.")
 
-# Treatment functions
 def add_treatment():
     print("\nAdd Treatment")
     list_pets()
@@ -368,28 +430,28 @@ def delete_treatment():
     else:
         print("Operation cancelled.")
 
-def treatment_menu():
+# Medication Menu
+def medication_menu():
     while True:
         print("""
-Treatment Menu:
-1. Add Treatment
-2. List Treatments
-3. Delete Treatment
+Medication Menu:
+1. Add Medication
+2. List Medications
+3. Delete Medication
 4. Back to Main Menu
 """)
         choice = input("Choose an option: ").strip()
         if choice == '1':
-            add_treatment()
+            add_medication()
         elif choice == '2':
-            list_treatments()
+            list_medications()
         elif choice == '3':
-            delete_treatment()
+            delete_medication()
         elif choice == '4':
             break
         else:
             print("Invalid choice.")
 
-# Medication functions
 def add_medication():
     print("\nAdd Medication")
     list_treatments()
@@ -443,28 +505,28 @@ def delete_medication():
     else:
         print("Operation cancelled.")
 
-def medication_menu():
+# Billing  Menu
+def billing_menu():
     while True:
         print("""
-Medication Menu:
-1. Add Medication
-2. List Medications
-3. Delete Medication
+Billing Menu:
+1. Add Billing
+2. List Billing
+3. Update Billing Paid Status
 4. Back to Main Menu
 """)
         choice = input("Choose an option: ").strip()
         if choice == '1':
-            add_medication()
+            add_billing()
         elif choice == '2':
-            list_medications()
+            list_billing()
         elif choice == '3':
-            delete_medication()
+            update_billing_paid()
         elif choice == '4':
             break
         else:
             print("Invalid choice.")
 
-# Billing functions
 def add_billing():
     print("\nAdd Billing Record")
     list_pets()
@@ -523,64 +585,6 @@ def update_billing_paid():
         print(f"Billing ID {billing_id} marked as paid.")
     else:
         print("Operation cancelled.")
-
-def billing_menu():
-    while True:
-        print("""
-Billing Menu:
-1. Add Billing
-2. List Billing
-3. Update Billing Paid Status
-4. Back to Main Menu
-""")
-        choice = input("Choose an option: ").strip()
-        if choice == '1':
-            add_billing()
-        elif choice == '2':
-            list_billing()
-        elif choice == '3':
-            update_billing_paid()
-        elif choice == '4':
-            break
-        else:
-            print("Invalid choice.")
-
-def main_menu():
-    while True:
-        print("""
-Main Menu:
-1. Initialize Database
-2. Staff Menu
-3. Owners Menu
-4. Pets Menu
-5. Appointments Menu
-6. Treatments Menu
-7. Medications Menu
-8. Billings Menu
-9. Exit
-""")
-        choice = input("Choose an option: ").strip()
-        if choice == '1':
-            init_db()
-        elif choice == '2':
-            staff_menu()
-        elif choice == '3':
-            owner_menu()
-        elif choice == '4':
-            pet_menu()
-        elif choice == '5':
-            appointment_menu()
-        elif choice == '6':
-            treatment_menu()
-        elif choice == '7':
-            medication_menu()
-        elif choice == '8':
-            billing_menu()
-        elif choice == '9':
-            print("Goodbye!")
-            break
-        else:
-            print("Invalid choice.")
 
 if __name__ == "__main__":
     main_menu()
