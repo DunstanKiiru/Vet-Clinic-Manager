@@ -92,21 +92,104 @@ Create and view billing records
 
 Welcome to Vet Clinic Manager!
 
+Main Menu:
+
 1. Initialize Database
-2. Add Staff Member
-3. List Staff Members
-4. Add Pet Owner
-5. List Pet Owner
-6. Add Pet
-7. list Pets
-8. Add Appointment
-9. List Appointments
-10. Add Treatment
-11. List Treatments
-12. Add Medication
-13. Add Billing
-14. List Billings
+2. Staff Menu
+3. Owners Menu
+4. Pets Menu
+5. Appointments Menu
+6. Treatments Menu
+7. Medications Menu
+8. Billings Menu
+9. Exit
+
+Example Submenus:
+
+Staff Menu:
+
+1. Add Staff
+2. List Staff
+3. Delete Staff
+4. Back to Main Menu
+
+Owner Menu:
+
+1. Add Owner
+2. List Owners
+3. Delete Owner
+4. Back to Main Menu
+
+Pet Menu:
+
+1. Add Pet
+2. List Pets
+3. Delete Pet
+4. Back to Main Menu
+
+Appointment Menu:
+
+1. Add Appointment
+2. List Appointments
+3. Back to Main Menu
+
+Treatment Menu:
+
+1. Add Treatment
+2. List Treatments
+3. Delete Treatment
+4. Back to Main Menu
+
+Medication Menu:
+
+1. Add Medication
+2. List Medications
+3. Delete Medication
+4. Back to Main Menu
+
+Billing Menu:
+
+1. Add Billing
+2. List Billing
+3. Update Billing Paid Status
+4. Back to Main Menu
+
 ...
+
+## Menus and Submenus
+
+The Vet Clinic Manager CLI provides the following menus and submenus for managing the veterinary clinic operations:
+
+- Database
+  - Initialize Database
+
+- Staff Management
+  - Add Staff Member
+  - List Staff Members
+
+- Owner Management
+  - Add Pet Owner
+  - List Pet Owner
+
+- Pet Management
+  - Add Pet
+  - List Pets
+
+- Appointments
+  - Add Appointment
+  - List Appointments
+
+- Treatments
+  - Add Treatment
+  - List Treatments
+
+- Medications
+  - Add Medication
+
+- Billing
+  - Add Billing
+  - List Billings
+  - Update Billing Paid Status
 
 ## Seed Data Updates
 
