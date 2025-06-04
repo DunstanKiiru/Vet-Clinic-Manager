@@ -1,5 +1,5 @@
 from db.models import (
-    Base, engine, Session,
+    Session,
     Staff, Owner, Pet, Appointment,
     Treatment, Medication, Billing
 )
@@ -32,42 +32,36 @@ def main_menu():
     while True:
         print("""
 Main Menu:
-1. Initialize Database
-2. Staff Menu
-3. Owners Menu
-4. Pets Menu
-5. Appointments Menu
-6. Treatments Menu
-7. Medications Menu
-8. Billings Menu
-9. Exit
+1. Staff Menu
+2. Owners Menu
+3. Pets Menu
+4. Appointments Menu
+5. Treatments Menu
+6. Medications Menu
+7. Billings Menu
+8. Exit
 """)
         choice = input("Choose an option: ").strip()
         if choice == '1':
-            init_db()
-        elif choice == '2':
             staff_menu()
-        elif choice == '3':
+        elif choice == '2':
             owner_menu()
-        elif choice == '4':
+        elif choice == '3':
             pet_menu()
-        elif choice == '5':
+        elif choice == '4':
             appointment_menu()
-        elif choice == '6':
+        elif choice == '5':
             treatment_menu()
-        elif choice == '7':
+        elif choice == '6':
             medication_menu()
-        elif choice == '8':
+        elif choice == '7':
             billing_menu()
-        elif choice == '9':
+        elif choice == '8':
             print("Goodbye!")
             break
         else:
             print("Invalid choice.")
 
-def init_db():
-    Base.metadata.create_all(engine)
-    print("\nDatabase initialized!")
 
 #  Staff Menu
 
