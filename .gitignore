@@ -3,10 +3,5 @@
 .venv/
 *.sqlite3
 *.db
-
-
 .pytest_cache/
 .coverage
-
-
-.vscode/
